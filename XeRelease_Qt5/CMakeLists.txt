@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(XeRelease_Qt5 VERSION 0.1 LANGUAGES CXX)
+project(XeRelease_Qt5 VERSION 17.0 LANGUAGES CXX)
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
@@ -13,10 +13,16 @@ find_package(QT NAMES Qt5 Qt6 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
+        config.hh
         main.cpp
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        xeapi.hh
+        xeapi.cc
+        xerelease.hh
+        xerelease.cc
+        json_nlohmann/json.hpp
         xe_resource.qrc
 )
 # qt_add_resources(PROJECT_SOURCES xe_resouce.qrc)
@@ -47,7 +53,7 @@ endif()
 target_link_libraries(XeRelease_Qt5 PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
 set_target_properties(XeRelease_Qt5 PROPERTIES
-    MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
+    MACOSX_BUNDLE_GUI_IDENTIFIER io.qt5.daleclack
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
     MACOSX_BUNDLE TRUE
