@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <string>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -28,7 +29,14 @@ private slots:
 
     void on_actionXeRelease_10_14_triggered();
 
+    void on_actionRelease_branchs_triggered();
+
 private:
     Ui::MainWindow *ui;
+    // Ui::BranchDialog dialog;
+
+    // Release names
+    std::string longterm_ver, stable_ver, devel_ver;
+    void get_config();
 };
 #endif // MAINWINDOW_H

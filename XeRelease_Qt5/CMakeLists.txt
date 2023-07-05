@@ -13,6 +13,9 @@ find_package(QT NAMES Qt5 Qt6 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
+        src/branchdialog.cc
+        src/branchdialog.h
+        src/branchdialog.ui
         src/config.hh
         src/main.cc
         src/mainwindow.cc
@@ -25,7 +28,6 @@ set(PROJECT_SOURCES
         json_nlohmann/json.hpp
         xe_resource.qrc
 )
-# qt_add_resources(PROJECT_SOURCES xe_resouce.qrc)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(XeRelease_Qt5
