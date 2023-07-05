@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/xe_res">
+        <file>fly.png</file>
+    </qresource>
+</RCC>

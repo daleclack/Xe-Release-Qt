@@ -6,6 +6,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->setStyleSheet("QMainWindow {border-image:url(:/xe_res/res/fly.png)}");
 }
 
 MainWindow::~MainWindow()
