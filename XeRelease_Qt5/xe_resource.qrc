@@ -1,5 +1,9 @@
 <RCC>
     <qresource prefix="/xe_res">
         <file>res/fly.png</file>
+        <file>res/flos2.png</file>
+        <file>res/img7.png</file>
+        <file>res/winpe.png</file>
+        <file>res/Xe-Release.png</file>
     </qresource>
 </RCC>

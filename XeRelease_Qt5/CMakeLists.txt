@@ -13,15 +13,15 @@ find_package(QT NAMES Qt5 Qt6 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
-        config.hh
-        main.cpp
-        mainwindow.cpp
-        mainwindow.h
-        mainwindow.ui
-        xeapi.hh
-        xeapi.cc
-        xerelease.hh
-        xerelease.cc
+        src/config.hh
+        src/main.cc
+        src/mainwindow.cc
+        src/mainwindow.h
+        src/mainwindow.ui
+        src/xeapi.hh
+        src/xeapi.cc
+        src/xerelease.hh
+        src/xerelease.cc
         json_nlohmann/json.hpp
         xe_resource.qrc
 )
@@ -31,6 +31,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(XeRelease_Qt5
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+        icon.rc
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET XeRelease_Qt5 APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
@@ -46,6 +47,7 @@ else()
     else()
         add_executable(XeRelease_Qt5
             ${PROJECT_SOURCES}
+            icon.rc
         )
     endif()
 endif()
