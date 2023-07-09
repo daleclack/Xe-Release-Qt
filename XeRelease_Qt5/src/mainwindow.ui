@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Xe Release 17 Qt Version</string>
+   <string>Xe Release Qt Version</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../xe_resource.qrc">
@@ -137,7 +137,7 @@
      <x>0</x>
      <y>0</y>
      <width>640</width>
-     <height>37</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

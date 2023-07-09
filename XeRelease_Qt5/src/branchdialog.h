@@ -14,6 +14,7 @@ class BranchDialog : public QDialog
 
 public:
     explicit BranchDialog(QWidget *parent = nullptr);
+    void setup_config(json &json_data);
     ~BranchDialog();
 
 private slots:
@@ -23,6 +24,12 @@ private slots:
 
 private:
     Ui::BranchDialog *ui;
+
+    // Json object
+    json json_data1;
+
+    // string to save custom path configs
+    std::string unix_path_str, win32_path_str, darwin_path_str;
 };
 
 #endif // BRANCHDIALOG_H
