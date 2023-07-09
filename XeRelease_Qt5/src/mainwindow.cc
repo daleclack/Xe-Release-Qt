@@ -81,18 +81,55 @@ void MainWindow::update_time(){
 void MainWindow::on_btn_ver_clicked()
 {
     // Get Index of selection
+    char version_longterm[57];
+    char version_stable[57];
+    char version_devel[57];
+
     int current_index = ui->combo_branch->currentIndex();
+    QString temp_string;
     switch(current_index)
     {
     case 0:
+        // The longterm builds branch
+        longterm(local, longterm_ver.c_str(), version_longterm);
+        temp_string += version_longterm;
+        show_version(temp_string);
         break;
     case 1:
+        // The Stable builds branch
+        stable(local, stable_ver.c_str(), version_stable);
+        temp_string += version_stable;
+        show_version(temp_string);
         break;
     case 2:
+        // The develop builds branch
+        develop(local, devel_ver.c_str(), version_devel);
+        temp_string += version_devel;
+        show_version(temp_string);
         break;
     }
 }
 
+void MainWindow::show_version(QString &info_string){
+    // Create icon
+    QPixmap pixmap = QPixmap(":/xe_res/res/Xe-Release.png");
+    QMessageBox msgbox;
+    // Text of message box
+    QString info_text = "The Version is:";
+    info_text += info_string;
+    msgbox.setText(QString("### Xe Release Qt Version"));
+    msgbox.setInformativeText(info_text);
+    msgbox.setTextFormat(Qt::TextFormat::MarkdownText);
+
+    // Icons
+    msgbox.setIconPixmap(pixmap);
+    msgbox.setWindowIcon(QIcon(pixmap));
+
+    // Only a Button
+    msgbox.setStandardButtons(QMessageBox::Ok);
+    msgbox.setDefaultButton(QMessageBox::Ok);
+    msgbox.exec();
+}
 
 void MainWindow::on_actionExit_triggered()
 {
@@ -142,9 +179,13 @@ void MainWindow::on_actionXeRelease_10_14_triggered()
 
 void MainWindow::on_actionRelease_branchs_triggered()
 {
+    // Create a dialog and show
     BranchDialog dialog(this);
     dialog.setup_config(json_data);
     dialog.exec();
+
+    // Refresh config
+    get_config();
 }
 
 

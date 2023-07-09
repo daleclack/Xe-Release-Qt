@@ -56,7 +56,8 @@ private:
     // with the Xe Release Gtkmm4 Version
     bool dark_mode;
 
-    void get_config();
-    void update_time();
+    void show_version(QString &info_string);    // A Dialog to show version string
+    void get_config();      // Get configs from json file
+    void update_time();     // Update current time
 };
 #endif // MAINWINDOW_H

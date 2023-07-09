@@ -2,10 +2,12 @@
 #include <ctime>
 #include <cstring>
 #include <cstdlib>
+#include <limits.h>
 #include "xerelease.hh"
 #include "xeapi.hh"
 
 static json data1;
+#define MAX_PATH 260
 
 // typedef void(*LP)(struct tm *local);//define a  pointer function
 
@@ -120,7 +122,7 @@ void dale(struct tm *local)
 void longterm(struct tm *local, const char *lts, char *str)
 {
     // Print Version of longterm release in the file
-    char filename[57];
+    char filename[MAX_PATH];
     path_translate(filename, lts);
     // sprintf(filename, "xe-%c.x", lts[0]);
     int lts_ver = 0; // default release version
@@ -143,7 +145,7 @@ void longterm(struct tm *local, const char *lts, char *str)
 void stable(struct tm *local, const char *rel, char *str)
 {
     // Print Version of stable release in the file
-    char filename[57];
+    char filename[MAX_PATH];
     path_translate(filename, rel);
     // sprintf(filename, "xe-%c.x", rel[0]);
     int devel1; // stable release version
@@ -165,7 +167,7 @@ void stable(struct tm *local, const char *rel, char *str)
 void develop(struct tm *local, const char *devel, char *str)
 {
     // Print Version of develop release in the file
-    char filename[57];
+    char filename[MAX_PATH];
     path_translate(filename, devel);
     // sprintf(filename, "xe-%c.x", devel[0]);
     int devel1; // development version

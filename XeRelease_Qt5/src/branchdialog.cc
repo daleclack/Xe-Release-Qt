@@ -1,5 +1,6 @@
 #include "branchdialog.h"
 #include "ui_branchdialog.h"
+#include <QFileDialog>
 #include <fstream>
 
 BranchDialog::BranchDialog(QWidget *parent) :
@@ -17,17 +18,17 @@ void BranchDialog::setup_config(json &json_data)
         longterm_str = json_data["Longterm"];
         stable_str = json_data["Stable"];
         devel_str = json_data["Develop"];
+        darwin_path_str = json_data["Release_Path_Darwin"];
+        unix_path_str = json_data["Release_Path_Unix"];
+        win32_path_str = json_data["Release_Path_Win32"];
         switch(get_os_type()){
         case OS_Type::Darwin:
-            darwin_path_str = json_data["Release_Path_Darwin"];
             path_str = darwin_path_str;
             break;
         case OS_Type::Linux:
-            unix_path_str = json_data["Release_Path_Unix"];
             path_str = unix_path_str;
             break;
         case OS_Type::Windows:
-            win32_path_str = json_data["Release_Path_Win32"];
             path_str = win32_path_str;
             break;
         }
@@ -102,5 +103,21 @@ void BranchDialog::on_buttonBox_accepted()
 
 void BranchDialog::on_buttonBox_rejected()
 {
+}
+
+
+void BranchDialog::on_btn_path_clicked()
+{
+    // Create a dialog to select folders
+    QFileDialog dialog(this, tr("Select Folder"), tr("./"), tr("Any Files(*.*)"));
+    dialog.setFileMode(QFileDialog::Directory);
+    dialog.setViewMode(QFileDialog::ViewMode::Detail);
+    dialog.setOption(QFileDialog::ShowDirsOnly, true);
+    if(dialog.exec()){
+        // Get folder path
+        QStringList path_list = dialog.selectedFiles();
+        QString path_str = path_list[0];
+        ui->line_path->setText(path_str);
+    }
 }
 
