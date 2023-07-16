@@ -74,7 +74,11 @@ void MainWindow::update_time(){
     // Get local time
     time_t t;
     t = time(NULL);
+#ifdef _WIN32
     localtime_s(local, &t);
+#else
+    localtime_r(&t, local);
+#endif
     year.setNum(local->tm_year + 1900);
 }
 
