@@ -198,7 +198,7 @@ void MainWindow::on_actionAbout_XeRelease_Qt_triggered()
     // Create icon
     QPixmap pixmap = QPixmap(":/xe_res/res/Xe-Release.png");
     QMessageBox msgbox;
-    QString detailed_text, version = "17.0 The Flying Dream\n";
+    QString detailed_text, version = "18.0 The Flying Cat\n";
     detailed_text = version;
     detailed_text += "Build With Qt ";
     detailed_text += QT_VERSION_STR;

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(XeRelease_Qt5 VERSION 17.0 LANGUAGES CXX)
+project(XeRelease_Qt5 VERSION 18.0 LANGUAGES CXX)
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
