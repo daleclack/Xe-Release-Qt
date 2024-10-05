@@ -68,5 +68,9 @@ FiveRow
 # Executables
 *.exe
 *.out
-*.app
+*.app\
+
+# Qt Creator generated files
+CMakelists.txt.user
+CMakelists.txt.user.*
 
