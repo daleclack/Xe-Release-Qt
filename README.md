@@ -1,14 +1,16 @@
 ## Xe-Release-Qt
 
-This is the Qt5 build of the Xe-Release, and aim to provide static build for microsoft windows.
+This is the Qt5/6 build of the Xe-Release, and aim to provide static build for microsoft windows.
 
 [repository on github](https://github.com/daleclack/Xe-Release)
 
 [repository on gitlab](https://gitlab.com/daleclack/Xe-Release)
 
-##### Why Qt5?
+##### Notes about Qt6
 
-Qt 6 has been released,  but there are some bugs and problems of it. For example, I found on KDE, the menu of Qt 6 applications has disappeared, though I searched for the solution of the problem, I still found the problem is still exist.
+Qt 6 has been released,  but there are some bugs and problems of it. For example, I found on KDE, the menu of Qt 6 applications has disappeared, though I searched for the solution of the problem, I still found the problem is still exist. So, the Qt6 builds will be a experimental build.
+
+#### The Reason for the project
 
 The reason for build the Qt 5 varient of the Xe-Release is also there are so many changes in Gtk 4, and it is no static build of Gtk 4 provided by the official gtk team.
 
